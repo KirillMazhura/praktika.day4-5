@@ -1,9 +1,13 @@
 <template>
+    <p>
+        {{ studentNumber }}
+    </p>
     <h2>{{ student.name }}</h2>
     <img :src="student.photo" :alt="student.name">
 </template>
 <script>
     import axios from 'axios'
+    import {useStore} from 'vuex'
 
     export default {
         props: {
@@ -11,7 +15,13 @@
         },
         data () {
             return {
-                student: {}
+                student: {},
+                store: useStore, 
+            }
+        },
+        computed: {
+            studentNumber() {
+                return this.$store.getters.getCount;
             }
         },
         mounted: function() {
