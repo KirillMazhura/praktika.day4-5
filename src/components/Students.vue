@@ -50,7 +50,7 @@
                 <td>
                     <input type="checkbox" id="checkbox" v-model="s.isDonePr">
                 </td>
-                <td>
+                <td v-if="s.group==user.group">
                     <button @click="deleteStudent(s._id)">Видалити</button>
                 </td>
                 <td v-if="s._id!=editingStudent._id && s.group==user.group">
